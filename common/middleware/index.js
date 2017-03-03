@@ -4,13 +4,11 @@ const { validateRequest } = require('@root/helpers');
 const config = require('@root/config');
 
 const isBodyEmpty = (req, res, next) => {
-  'use strict';
-
   if (_.isNil(req.body) || _.isEmpty(req.body)) {
     return next(config.http.errors.EMPTY_BODY);
   }
 
-  next();
+  return next();
 };
 
 const validate = (req, res, next) =>

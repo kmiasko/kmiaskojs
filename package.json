@@ -4,21 +4,26 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
-    "watch": "nodemon app.js --exec babel-node"
+    "start": "node --harmony app.js",
+    "watch": "nodemon --harmony app.js"
+  },
+  "_moduleAliases": {
+    "@root": "."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
+    "axios": "^0.15.3",
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.1",
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
     "express": "^4.14.1",
+    "express-validator": "^3.1.2",
     "lodash": "^4.17.4",
+    "module-alias": "^2.0.0",
+    "moment": "^2.17.1",
     "mongoose": "^4.8.5",
     "morgan": "^1.8.1",
     "pug": "^2.0.0-beta11",

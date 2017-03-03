@@ -1,5 +1,5 @@
-import winston from 'winston';
-import path from 'path';
+const winston = require('winston');
+const path = require('path');
 
 const logger = new winston.Logger({
   transports: [
@@ -22,5 +22,10 @@ const logger = new winston.Logger({
   exitOnError: false,
 });
 
-export default logger;
+logger.stream = {
+  write(message) {
+    logger.info(message);
+  },
+};
 
+module.exports = logger;

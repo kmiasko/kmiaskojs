@@ -13,7 +13,7 @@ const fs = require('fs');
 
 mongoose.Promise = P;
 
-var options = {
+const options = {
   key: fs.readFileSync(config.http.SSL_KEY),
   cert: fs.readFileSync(config.http.SSL_CERT),
 };

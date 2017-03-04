@@ -13,6 +13,10 @@ const errorHandler = (err, req, res, next) => {
     next();
   }
 
+  if (res.headersSent) {
+    return null;
+  }
+
   const formattedError = error(err);
 
   logger.warn(JSON.stringify(formattedError.stack));

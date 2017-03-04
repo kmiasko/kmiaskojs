@@ -8,6 +8,8 @@ module.exports = {
   },
   http: {
     PORT: process.env.PORT || 55555,
+    SSL_CERT: process.env.SSL_CERT, 
+    SSL_KEY: process.env.SSL_KEY,
     errors: {
       EMPTY_BODY: {
         code: 500,

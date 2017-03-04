@@ -22,11 +22,14 @@ class Bot extends events.EventEmitter {
   }
 
   auth(verificationToken) {
+    logger.info(verificationToken);
     const that = this;
-    if (verificationToken === this.config.API_VERIFICATION_TOKEN) {
-      return that.emit('authenticated');
-    }
-    return that.emit('unauthenticated');
+    setImmediate(() => {
+      if (verificationToken === this.config.API_VERIFICATION_TOKEN) {
+        return that.emit('authenticated');
+      }
+      return that.emit('unauthenticated');
+    });
   }
 
   handleLocation(location) {
@@ -110,3 +113,4 @@ class Bot extends events.EventEmitter {
 }
 
 module.exports = Bot;
+

@@ -27,9 +27,37 @@ const TEMPLATES = {
   text: {
     text: '',
   },
+  button: {
+    attachment:{
+      type:"template",
+      payload:{
+        template_type: 'button',
+        text: 'WebView',
+        buttons:[],
+      }
+    }
+  }
 };
 
 const ACTIONS = {
+  WEBVIEW: {
+    regex: '^WEBVIEW',
+    template: 'button',
+    dataFn(portfolio) {
+      return ({
+        template_type: 'button',
+        text: 'WebView',
+        buttons:[
+          {
+            type: 'web_url',
+            url: 'https://eea7c4e5.ngrok.io/webview/',
+            title: 'Show Website'
+            webview_height_ratio: 'compact',
+          },
+        ],
+      });
+    },
+  },
   PORTFOLIO: {
     payload: 'PAYLOAD_POSTBACK_PORTFOLIO',
     regex: '^PORTFOLIO',
